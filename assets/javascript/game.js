@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var characterChoice;
 	var enemyChosen;
 	var enemyChosen = false;
+	var saberOn = new Audio ('./assets/audio/SaberOn.mp3');
 
 	var characters =  [
 		yoda = {
@@ -27,6 +28,23 @@ $(document).ready(function() {
 		},
 	];
 	
+
+	(function ($) {
+   		$.extend({
+       		playSound: function () {
+           	 return $(
+            	       '<audio class="sound-player" autoplay="autoplay" style="display:none;">'
+                     + '<source src="' + arguments[0] + '" />'
+                     + '<embed src="' + arguments[0] + '" hidden="true" autostart="true" loop="false"/>'
+                   + '</audio>'
+                 ).appendTo('body');
+        },
+        stopSound: function () {
+            $(".sound-player").remove();
+        }
+    });
+})(jQuery);
+
 	// var  characterChoice = characters [];
 
 	// var attack = characterChoice["health"] - ["attack"];
@@ -45,6 +63,7 @@ $(document).ready(function() {
 			$("#kylo_div").prependTo("#enemies");
 			$("#luke_div").prependTo("#enemies");
 			chooseCharacter(yoda);
+			$.playSound('./assets/audio/SaberOn.mp3');
 
 
 		});
@@ -75,7 +94,7 @@ $(document).ready(function() {
 			chooseCharacter(luke);
 
 		});
-		
+
 	$("#attack_button").click(function() {
 		var healthPower = this.healthPower - this.attackPower;
 
