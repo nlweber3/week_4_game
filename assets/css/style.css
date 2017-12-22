@@ -6,6 +6,19 @@
     font-style: normal;
 
 }
+@font-face {
+    font-family: 'sf_distant_galaxy_alt';
+    src: url('sf_distant_galaxy-webfont.woff2') format('woff2'),
+         url('sf_distant_galaxy_webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#enemies {
+	display:inherit;
+
+}
 body {
 	background-image: url(../images/sw_background.jpg);
 	background-size: cover;
@@ -25,4 +38,22 @@ h1 {
 .characters {
 	font-family: 'sf_distant_galaxy';
 	color: yellow;
+}
+h2 {
+	font-family: 'sf_distant_galaxy';
+	color: yellow;
+	text-align: center;
+}
+h3 {
+	margin-top: 30px;
+	font-family: 'sf_distant_galaxy';
+	color: yellow;
+	text-align: center;
+}
+#attack_button {
+	margin:0 auto;
+	display:block;
+	background: white;
+	color:black;
+	font-family: 'sf_distant_galaxy_alt';
 }

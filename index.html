@@ -1,6 +1,7 @@
 <!doctype HTML>
 <html>
 <head>
+	<title> STAR WARS RPG </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
@@ -9,31 +10,65 @@
 </head>
 
 <body>
+	
 	<h1>CHOOSE YOUR CHARACTER</h1>
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm">
+		<div class="col-sm" id="yoda_div">
 			<img id="yoda" src="./assets/images/yoda.jpg" alt="yoda" class="img-thumbnail">
 			<p class="characters">Yoda</p>
 		</div>
-		<div class="col-sm">
+		<div class="col-sm" id="luke_div">
 			<img id="luke" src="./assets/images/luke_skywalker.jpg" alt="luke" class="img-thumbnail">
 			<p class="characters">Luke Skywalker</p>
 		</div>
-		<div class="col-sm">
+		<div class="col-sm" id="kylo_div">
 			<img id="kylo" src="./assets/images/kylo_ren.jpg" alt="kylo" class="img-thumbnail">
 			<p class="characters">kylo Ren</p>
 		</div>
-		<div class="col-sm">
+		<div class="col-sm" id="vader_div">
 			<img id="vader" src="./assets/images/darth_vader.jpg" alt="vader" class="img-thumbnail">
 			<p class="characters">Darth Vader</p>
 		</div>
 	</div>
 </div>
 
+<div class="container">
+	<div class="row">
+		<div id="YourCharater="col-sm">
+			<h2>CHOOSE A CHALLENGER</h2>
+		</div>
+	</div>
+</div>
 
 
+<div class="container">
+	<div class="row">
+		<div id="enemies" class="col-sm">
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+		<h3>OPPONENT</h3>
+			<div id="challenger" class="col-sm">
+			</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div id="score" class="col-sm">
+		</div>
+	</div>
+</div>
+
+
+<button type="button" class="btn btn-light" id="attack_button">Attack</button>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
