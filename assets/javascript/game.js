@@ -44,14 +44,14 @@ $(document).ready(function() {
                    + '</audio>'
                  ).appendTo('body');
         },
-        stopSound: function () {
+        unbindSound: function () {
             $(".sound-player").remove();
         }
     });
 })(jQuery);
 
-
-});
+	
+// });
 		
 
 		$("#yoda_div").click(function() {
@@ -61,6 +61,13 @@ $(document).ready(function() {
 			$("#luke_div").prependTo("#enemies");
 			chooseCharacter(yoda);
 			$.playSound('./assets/audio/SaberOn.mp3');
+
+			opponents[0]=characters[vader];
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
+			// // opponents[1]=
 
 
 		});
@@ -72,6 +79,11 @@ $(document).ready(function() {
 			$("#luke_div").prependTo("#enemies");
 			chooseCharacter(vader);
 			$.playSound('./assets/audio/SaberOn.mp3');
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
+
 
 		});
 
@@ -82,6 +94,10 @@ $(document).ready(function() {
 			$("#luke_div").prependTo("#enemies");
 			chooseCharacter(kylo);
 			$.playSound('./assets/audio/SaberOn.mp3');
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
 
 		});
 
@@ -92,8 +108,15 @@ $(document).ready(function() {
 			$("#vader_div").prependTo("#enemies");
 			chooseCharacter(luke);
 			$.playSound('./assets/audio/SaberOn.mp3');
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
 
+			chooseEnemy();
 		});
+
+	
 
 	$("#attack_button").click(function() {
 		$.playSound('./assets/audio/clash.mp3');
@@ -106,10 +129,20 @@ $(document).ready(function() {
 		console.log(character);
 	}
 	function chooseEnemy(char){
+			$("#enemies #yoda_div").click(function() {
+			$("#yoda_div").prependTo("#challenger");
+			console.log("enemy yoda");
+
+			
+
+		});
+
 		if(enemyChosen == false){
 			opponent = char;
 			enemyChosen = true;
+
 		}
 	}
+});
 
 	
