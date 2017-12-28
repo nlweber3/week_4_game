@@ -67,7 +67,8 @@ $(document).ready(function() {
 			$("#kylo_div").unbind();
 			$("#luke_div").unbind();
 			$("#vader_div").unbind();
-			// // opponents[1]=
+
+			chooseEnemy();
 
 
 		});
@@ -84,6 +85,8 @@ $(document).ready(function() {
 			$("#luke_div").unbind();
 			$("#vader_div").unbind();
 
+			chooseEnemy();
+
 
 		});
 
@@ -98,6 +101,8 @@ $(document).ready(function() {
 			$("#kylo_div").unbind();
 			$("#luke_div").unbind();
 			$("#vader_div").unbind();
+
+			chooseEnemy();
 
 		});
 
@@ -118,11 +123,6 @@ $(document).ready(function() {
 
 	
 
-	$("#attack_button").click(function() {
-		$.playSound('./assets/audio/clash.mp3');
-
-
-	});
 	function chooseCharacter(char){
 		characterChoice = true;
 		character = char;
@@ -132,17 +132,45 @@ $(document).ready(function() {
 			$("#enemies #yoda_div").click(function() {
 			$("#yoda_div").prependTo("#challenger");
 			console.log("enemy yoda");
+			chooseEnemy(yoda);
+			});
 
+			$("#enemies #vader_div").click(function() {
+			$("#vader_div").prependTo("#challenger");
+			console.log("enemy vader");
+			chooseEnemy(vader);
+			});
 			
+			$("#enemies #luke_div").click(function() {
+			$("#luke_div").prependTo("#challenger");
+			console.log("enemy luke");
+			chooseEnemy(luke);
+			});
 
-		});
+			$("#enemies #kylo_div").click(function() {
+			$("#kylo_div").prependTo("#challenger");
+			console.log("enemy kylo");
+			chooseEnemy(kylo);
+
+			});
+
+
 
 		if(enemyChosen == false){
 			opponent = char;
 			enemyChosen = true;
 
 		}
+
 	}
+
+	$("#attack_button").click(function() {
+		$.playSound('./assets/audio/clash.mp3');
+		$("battle_score")
+
+
+	});
+
 });
 
 	
