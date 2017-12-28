@@ -145,7 +145,7 @@ $(document).ready(function() {
 			$("#kylo_div").unbind();
 			$("#luke_div").unbind();
 			$("#vader_div").unbind();
-			
+
 			attack();
 
 			});
@@ -207,18 +207,20 @@ $(document).ready(function() {
 		$.playSound('./assets/audio/clash.mp3');
 
 		enemy['healthPower'] = enemy['healthPower'] - character['attackPower'];
-		character['healthPower']- character['healthPower'] - enemy['attackPower'];
+		character['healthPower']= character['healthPower'] - enemy['attackPower'];
 		console.log(character['healthPower']);
 		console.log(enemy['healthPower']);
 
 		$(battle_score).text("CHARACTER HEALTH IS " + character['healthPower']);
 		$(battle_score2).text("ENEMY HEALTH IS " + enemy['healthPower']);
 
-		if(enemy['healthPower'] < 0)
+		if(enemy['healthPower'] <= 0)
 			$(battle_score2).text("ENEMY DEFEATED");
+			$.playSound("./assets/audio/attack.mp3");
 
-		if(character['healthPower'] < 0)
+		if(character['healthPower'] <= 0)
 			$(battle_score).text("YOU HAVE BEEN DEFEATED");
+			$.playSound("./assets/audio/attack.mp3");
 
 		
 
