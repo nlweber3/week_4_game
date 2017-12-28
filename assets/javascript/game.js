@@ -6,6 +6,9 @@ $(document).ready(function() {
 	var characterChosen = false;
 	var saberOn = new Audio ('./assets/audio/SaberOn.mp3');
 	var opponents = [];
+	var healthPower;
+	var attackPower;
+	var enemy ;
 
 	var characters =  [
 		yoda = {
@@ -127,49 +130,100 @@ $(document).ready(function() {
 		characterChoice = true;
 		character = char;
 		console.log(character);
+
 	}
-	function chooseEnemy(char){
+
+	function chooseEnemy(){ 
+	
 			$("#enemies #yoda_div").click(function() {
 			$("#yoda_div").prependTo("#challenger");
 			console.log("enemy yoda");
-			chooseEnemy(yoda);
+			enemy=characters[0];
+			$.playSound('./assets/audio/SaberOn.mp3');
+			console.log(enemy['attackPower']);
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
+			
+			attack();
+
 			});
 
 			$("#enemies #vader_div").click(function() {
 			$("#vader_div").prependTo("#challenger");
 			console.log("enemy vader");
-			chooseEnemy(vader);
+			enemy=characters[3];
+			$.playSound('./assets/audio/SaberOn.mp3');
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
+
+			attack();
+
 			});
 			
 			$("#enemies #luke_div").click(function() {
 			$("#luke_div").prependTo("#challenger");
 			console.log("enemy luke");
-			chooseEnemy(luke);
+			enemy=characters[1];
+			$.playSound('./assets/audio/SaberOn.mp3');
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
+
+			attack();
+
 			});
 
 			$("#enemies #kylo_div").click(function() {
 			$("#kylo_div").prependTo("#challenger");
 			console.log("enemy kylo");
-			chooseEnemy(kylo);
+			enemy=characters[2];
+			$.playSound('./assets/audio/SaberOn.mp3');
+			$("#yoda_div").unbind();
+			$("#kylo_div").unbind();
+			$("#luke_div").unbind();
+			$("#vader_div").unbind();
+
+			attack();
+
 
 			});
 
 
 
 		if(enemyChosen == false){
-			opponent = char;
+			opponent = enemy;
 			enemyChosen = true;
 
 		}
 
 	}
-
+	function attack() {
 	$("#attack_button").click(function() {
 		$.playSound('./assets/audio/clash.mp3');
-		$("battle_score")
 
+		enemy['healthPower'] = enemy['healthPower'] - character['attackPower'];
+		character['healthPower']- character['healthPower'] - enemy['attackPower'];
+		console.log(character['healthPower']);
+		console.log(enemy['healthPower']);
+
+		$(battle_score).text("CHARACTER HEALTH IS " + character['healthPower']);
+		$(battle_score2).text("ENEMY HEALTH IS " + enemy['healthPower']);
+
+		if(enemy['healthPower'] < 0)
+			$(battle_score2).text("ENEMY DEFEATED");
+
+		if(character['healthPower'] < 0)
+			$(battle_score).text("YOU HAVE BEEN DEFEATED");
+
+		
 
 	});
+}
 
 });
 

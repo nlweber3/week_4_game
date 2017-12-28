@@ -50,10 +50,24 @@ h3 {
 	color: yellow;
 	text-align: center;
 }
+#battle_score {
+	margin-top: 30px;
+	font-family: 'sf_distant_galaxy';
+	color: yellow;
+	font-size: 30px;
+}
+#battle_score2 {
+	margin-top: 30px;
+	font-family: 'sf_distant_galaxy';
+	color: yellow;
+	font-size: 30px;
+	text-align: right;
+}
 #attack_button {
 	margin:0 auto;
 	display:block;
 	background: white;
 	color:black;
 	font-family: 'sf_distant_galaxy_alt';
+	margin-bottom: 30px;
 }
